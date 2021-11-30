@@ -1,1 +1,4 @@
  
+gcc -g p0final.c
+ ./a.out
+my name is vennele
