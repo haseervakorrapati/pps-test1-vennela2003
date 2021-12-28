@@ -1,21 +1,4 @@
- 
- gcc -g p5original.c
-/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
-(.text+0x20): undefined reference to `main'
-collect2: error: ld returned 1 exit status
- gdb a.out
-GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
- 
- gcc -g p4original.c
-  gdb a.out
-GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
-Copyright (C) 2018 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-and "show warranty" for details.
- 
- gcc -g p4original.c
+ gcc -g p5final.c 
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -33,12 +16,12 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x722: file p4original.c, line 3.
+Breakpoint 1 at 0x722: file p5final.c, line 3.
 (gdb) r
 Starting program: /home/runner/pps-test1-vennela2003-6/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4original.c:3
+Breakpoint 1, main () at p5final.c:3
 3   {
 (gdb) n
 5       printf("enter 3 numbers\n");
@@ -46,15 +29,13 @@ Breakpoint 1, main () at p4original.c:3
 enter 3 numbers
 6       scanf("%d%d%d",&a,&b,&c);
 (gdb) n
+78
 67
-89
 09
 7       if((a>b)&&(a>c))
 (gdb) n
-9       else if ((b>a)&&(b>c))
+9       printf("A is big\n");
 (gdb) n
-10      printf("B is big\n");
-(gdb) n
-B is big
-13      return 0;
+A is big
+19      return 0;
 (gdb) 
