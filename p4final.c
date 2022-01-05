@@ -23,7 +23,7 @@ else
 }
 void output(int a, int b,int c,int s)
 {
-  printf("among %d,%d,%d\n %d is greatest",a,b,c,s);
+  printf("among %d,%d,%d \n %d is greatest",a,b,c,s);
 }
 int main()
 {
