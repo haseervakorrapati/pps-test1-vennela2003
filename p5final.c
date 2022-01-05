@@ -31,7 +31,7 @@ int main()
 {
     int a1,a2,a3,large;
     input(&a1,&a2,&a3);
-    cmp(a1,a2,a3,& large);
+    cmp(a1,a2,a3,& large); 
     output(a1,a2,a3,large);
     return 0;
 }
