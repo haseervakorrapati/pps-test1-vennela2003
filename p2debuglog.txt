@@ -1,4 +1,19 @@
-gcc -g p2original.c
+ 
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+ 
+ gcc -g p2final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -15,33 +30,65 @@ Find the GDB manual and other documentation resources online at:
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
-(gdb) break main
-Breakpoint 1 at 0x810: file p2original.c, line 22.
+(gdb) b main
+Breakpoint 1 at 0x810: file p2final.c, line 22.
 (gdb) r
 Starting program: /home/runner/pps-test1-vennela2003-6/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:22
+Breakpoint 1, main () at p2final.c:22
 22    x = input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter  number \n");
 (gdb) n
 enter  number 
-6
+6     scanf("%d",&a);
+(gdb) n
+78
+7     return a;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:23
 23    y = input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter  number \n");
 (gdb) n
 enter  number 
-9
+6     scanf("%d",&a);
+(gdb) n
+45
+7     return a;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:24
 24    sum = add(x,y);
 (gdb) s
-add (a=6, b=9) at p2original.c:12
+add (a=78, b=45) at p2final.c:12
 12    sum=a+b;
 (gdb) n
 13    return sum;
-(gdb) 
+(gdb) n
 14  }
-(gdb) s
-main () at p2original.c:25
+(gdb) n
+main () at p2final.c:25
 25    output(x,y,sum);
 (gdb) s
-output (a=6, b=9, sum=15) at p2original.c:17
+output (a=78, b=45, sum=123) at p2final.c:17
 17    printf("sum of a,b is %d+%d=%d",a,b,sum);
- 
+(gdb) n
+18  }
+(gdb) n
+main () at p2final.c:26
+26    return 0; 
+(gdb) c
+Continuing.
+sum of a,b is 78+45=123[Inferior 1 (process 1015) exited normally]
+(gdb) 
