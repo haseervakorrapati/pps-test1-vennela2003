@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<math.h>
-
 float
 input ()
 {
@@ -9,7 +8,6 @@ input ()
   scanf ("%f",&n);
   return n;
 }
-
 float
 my_sqrt (float n)
 {
@@ -22,16 +20,13 @@ my_sqrt (float n)
      sqrt_result = ((n/temp) + temp)/2;
        
    }
-
 return sqrt_result;
 }
-
 void output (float n, float sqrt_result)
 {
 printf (" The sqrt of given number %f is %f \n ", n, sqrt_result );
 }
-
-	int main ()
+int main ()
 {
 	float n,res;
 	n=input();
