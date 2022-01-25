@@ -1,4 +1,8 @@
-gcc -g p8final.c
+ 
+ gcc -g p8final.c
+ gdb a.out
+ 
+ gcc -g p8final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -32,7 +36,7 @@ input () at p8final.c:5
 enter a number: 
 8     scanf ("%f",&n);
 (gdb) n
- 77
+ 6
 9     return n;
 (gdb) n
 10  }
@@ -40,7 +44,7 @@ enter a number:
 main () at p8final.c:33
 33      res= my_sqrt(n);
 (gdb) s
-my_sqrt (n=77) at p8final.c:15
+my_sqrt (n=6) at p8final.c:15
 15    sqrt_result = n/2;
 (gdb) n
 16    temp =0;
@@ -50,12 +54,41 @@ my_sqrt (n=77) at p8final.c:15
 19     { temp = sqrt_result;
 (gdb) n
 20       sqrt_result = ((n/temp) + temp)/2;
-(gdb) c
-Continuing.
- The sqrt of given number 77.000000 is 8.774964 
- [Inferior 1 (process 66) exited normally]
 (gdb) n
-The program is not being run.
-
-
-
+18    while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) n
+19     { temp = sqrt_result;
+(gdb) n
+20       sqrt_result = ((n/temp) + temp)/2;
+(gdb) n
+18    while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) n
+19     { temp = sqrt_result;
+(gdb) n
+20       sqrt_result = ((n/temp) + temp)/2;
+(gdb) n
+18    while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) n
+19     { temp = sqrt_result;
+(gdb) n
+20       sqrt_result = ((n/temp) + temp)/2;
+(gdb) n
+18    while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) n
+19     { temp = sqrt_result;
+(gdb) n
+20       sqrt_result = ((n/temp) + temp)/2;
+(gdb) n
+18    while(fabs(sqrt_result-temp) > 0.0000001)
+(gdb) n
+23  return sqrt_result;
+(gdb) n
+24  }
+(gdb) n
+main () at p8final.c:34
+34      output (n, res);
+(gdb) s
+output (n=6, sqrt_result=2.44948959) at p8final.c:27
+27  printf (" The sqrt of given number %f is %f \n ", n, sqrt_result );
+(gdb) n
+ The sqrt of given number 6.000000 is 2.449490 
