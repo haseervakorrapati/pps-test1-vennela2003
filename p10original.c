@@ -48,5 +48,4 @@ int main(){
   input_n_complex(n,c);
   result = add_n_complex(n,c);
   output(n,c,result);
-  return 0;
 }
