@@ -1,51 +1,43 @@
-#include <stdio.h>
-typedef struct _complex Complex;
-struct _complex{
-  float real,imaginary;
+#include<stdio.h>
+
+struct _complex
+{
+  float real, imaginary;
 };
-int get_n(){
-  int n;
-  printf("Enter the number of complex numbers: ");
-  scanf("%d",&n);
-  return n;
+typedef struct _complex Complex;
+
+Complex
+input_complex ()
+{
+  Complex x ;
+  printf ("Enter complex number\n");
+  scanf ("%f%f", &x.real, &x.imaginary);
+  return x;
+
 }
-Complex input_complex(){
-  Complex h;
-  printf("Enter a complex number : ");
-  scanf("%f %f",&h.real,&h.imaginary);
-  return h;
+
+Complex
+add (Complex a, Complex b)
+{
+  Complex c;
+  c.real = a.real + b.real;
+  c.imaginary = a.imaginary + b.imaginary;
+  return c;
 }
-void input_n_complex(int n, Complex c[n]){
-  for (int i = 1; i<=n; ++i){
-    c[i] = input_complex();
-  }
+
+void
+output (Complex a, Complex b, Complex c)
+{
+  printf ("%f+%fi+%f+%fi = %f+%fi\n", a.real, a.imaginary, b.real, b.imaginary, c.real, c.imaginary);
 }
-Complex add_n_complex(int n, Complex c[n]){
-  Complex out;
-  for (int i=1; i<=n; ++i){
-    out.real = out.real + c[i].real;
-    out.imaginary = out.imaginary + c[i].imaginary;
-  }
-  return out;
-}
-void output(int n, Complex c[n], Complex result){
-  for (int i = 0; i <= n; ++i){
-    if (i==0){
-      continue;
-    }
-    if (i<n && i != 0){
-      printf("(%f + i%f) +",c[i].real,c[i].imaginary);
-    }
-    else{
-      printf("(%f + i%f) is (%f + i%f)",c[i].real,c[i].imaginary,result.real,result.imaginary);
-    }
-  }
-}
-int main(){
-  int n;
-  n = get_n();
-  Complex c[n],result;
-  input_n_complex(n,c);
-  result = add_n_complex(n,c);
-  output(n,c,result);
+
+int
+main ()
+{
+  Complex a, b, c;
+  a=input_complex();
+  b=input_complex ();
+  c = add (a, b);
+  output (a, b, c);
+  return 0;
 }
